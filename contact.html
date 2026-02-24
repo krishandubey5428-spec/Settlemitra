@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact Settlemitra for a free debt settlement consultation." />
+  <title>Contact | Settlemitra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand">Settlemitra</a>
+      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html" class="active btn btn-sm">Book Free Consultation</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section page-head">
+      <div class="container narrow">
+        <span class="eyebrow">Contact Us</span>
+        <h1>Book Your Free Debt Consultation</h1>
+        <p>Share your details and our team will contact you with next steps.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contact-grid">
+        <article class="card">
+          <h2>Consultation Form</h2>
+          <form class="lead-form" data-form>
+            <label>Full Name<input type="text" name="name" required /></label>
+            <label>Email Address<input type="email" name="email" required /></label>
+            <label>Phone Number<input type="tel" name="phone" pattern="[0-9]{10}" placeholder="10-digit number" required /></label>
+            <label>City<input type="text" name="city" required /></label>
+            <label>Total Debt Amount (₹)<input type="number" name="debt" min="50000" required /></label>
+            <label>Message<textarea name="message" rows="4" placeholder="Tell us your debt situation briefly"></textarea></label>
+            <button type="submit" class="btn">Submit Request</button>
+            <p class="form-message" aria-live="polite"></p>
+          </form>
+        </article>
+
+        <aside class="contact-side">
+          <article class="card">
+            <h3>Contact Details</h3>
+            <p><strong>Phone:</strong> +91-90000-00000</p>
+            <p><strong>Email:</strong> support@settlemitra.com</p>
+            <p><strong>Hours:</strong> Mon-Sat, 9:30 AM to 7:00 PM</p>
+          </article>
+          <article class="card">
+            <h3>Why Contact Now?</h3>
+            <ul class="list">
+              <li>Understand your real settlement options</li>
+              <li>Get a step-by-step action framework</li>
+              <li>Reduce stress with expert guidance</li>
+            </ul>
+          </article>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>© <span data-year></span> Settlemitra. All rights reserved.</p>
+      <div>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

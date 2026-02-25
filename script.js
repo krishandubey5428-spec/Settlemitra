@@ -149,3 +149,168 @@ forms.forEach((form) => {
     if (submitButton) submitButton.disabled = false;
   });
 });
+
+/* ── New Features ─────────────────────────────────────────────────── */
+(function () {
+  'use strict';
+
+  /* 1. Scroll Animation Observer */
+  var animateEls = document.querySelectorAll('.animate');
+  if (animateEls.length) {
+    var animObs = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            animObs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    animateEls.forEach(function (el) { animObs.observe(el); });
+  }
+
+  /* 2. Counter Animation */
+  var counterEls = document.querySelectorAll('[data-count]');
+  if (counterEls.length) {
+    var counterObs = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          counterObs.unobserve(entry.target);
+          var target = parseInt(entry.target.getAttribute('data-count'), 10) || 0;
+          var duration = 2000;
+          var start = performance.now();
+          function step(now) {
+            var progress = Math.min((now - start) / duration, 1);
+            entry.target.textContent = Math.floor(progress * target);
+            if (progress < 1) requestAnimationFrame(step);
+            else entry.target.textContent = target;
+          }
+          requestAnimationFrame(step);
+        });
+      },
+      { threshold: 0.15 }
+    );
+    counterEls.forEach(function (el) { counterObs.observe(el); });
+  }
+
+  /* 3. Typewriter Effect */
+  var typewriterEls = document.querySelectorAll('[data-typewriter]');
+  typewriterEls.forEach(function (el) {
+    var text = el.getAttribute('data-typewriter') || el.textContent;
+    el.textContent = '';
+    el.style.borderRight = '2px solid currentColor';
+    var i = 0;
+    function type() {
+      if (i < text.length) {
+        el.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, 80);
+      } else {
+        // blink cursor then remove
+        setTimeout(function () { el.style.borderRight = 'none'; }, 2500);
+      }
+    }
+    var twObs = new IntersectionObserver(
+      function (entries) {
+        if (entries[0].isIntersecting) {
+          twObs.unobserve(el);
+          type();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    twObs.observe(el);
+  });
+
+  /* 4. Smooth Scroll for Anchor Links */
+  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+    anchor.addEventListener('click', function (e) {
+      var id = this.getAttribute('href');
+      if (id === '#') return;
+      var target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      var header = document.querySelector('.site-header');
+      var offset = header ? header.offsetHeight : 0;
+      var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    });
+  });
+
+  /* 5. Header Scroll Effect */
+  var siteHeader = document.querySelector('.site-header');
+  if (siteHeader) {
+    window.addEventListener('scroll', function () {
+      if (window.pageYOffset > 50) {
+        siteHeader.classList.add('scrolled');
+      } else {
+        siteHeader.classList.remove('scrolled');
+      }
+    }, { passive: true });
+  }
+
+  /* 6. Dropdown Navigation */
+  var dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+  var isMobile = function () { return window.innerWidth < 768; };
+  dropdownToggles.forEach(function (toggle) {
+    var menu = toggle.nextElementSibling;
+    if (!menu || !menu.classList.contains('dropdown-menu')) return;
+
+    toggle.addEventListener('click', function (e) {
+      if (isMobile()) {
+        e.preventDefault();
+        menu.classList.toggle('open');
+      }
+    });
+
+    toggle.parentElement.addEventListener('mouseenter', function () {
+      if (!isMobile()) menu.classList.add('open');
+    });
+    toggle.parentElement.addEventListener('mouseleave', function () {
+      if (!isMobile()) menu.classList.remove('open');
+    });
+  });
+
+  /* 7. Blog Search */
+  var blogSearch = document.querySelector('[data-blog-search]');
+  if (blogSearch) {
+    blogSearch.addEventListener('input', function () {
+      var query = this.value.toLowerCase().trim();
+      document.querySelectorAll('.blog-card').forEach(function (card) {
+        var title = (card.querySelector('h2, h3, .blog-title') || {}).textContent || '';
+        var excerpt = (card.querySelector('p, .blog-excerpt') || {}).textContent || '';
+        var haystack = (title + ' ' + excerpt).toLowerCase();
+        card.style.display = haystack.includes(query) ? '' : 'none';
+      });
+    });
+  }
+
+  /* 8. Back to Top Button */
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'back-to-top';
+  btn.setAttribute('aria-label', 'Back to top');
+  btn.textContent = '↑';
+  btn.style.cssText =
+    'position:fixed;bottom:2rem;right:2rem;width:3rem;height:3rem;border-radius:50%;' +
+    'border:none;background:#1a73e8;color:#fff;font-size:1.25rem;cursor:pointer;' +
+    'opacity:0;pointer-events:none;transition:opacity .3s;z-index:999;';
+  document.body.appendChild(btn);
+
+  window.addEventListener('scroll', function () {
+    if (window.pageYOffset > 400) {
+      btn.style.opacity = '1';
+      btn.style.pointerEvents = 'auto';
+    } else {
+      btn.style.opacity = '0';
+      btn.style.pointerEvents = 'none';
+    }
+  }, { passive: true });
+
+  btn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();

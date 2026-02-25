@@ -9,6 +9,9 @@ Modern multi-page website for Settlemitra, a debt settlement company.
 - `services.html` — Services and process
 - `faq.html` — Frequently asked questions
 - `contact.html` — Contact and consultation form
+- `privacy.html` — Privacy Policy
+- `terms.html` — Terms of Service
+- `404.html` — Custom 404 error page
 
 ## Tech
 

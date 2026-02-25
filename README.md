@@ -71,21 +71,21 @@ You can also set config before loading `script.js`:
 
 When webhook is unavailable, users still get clickable WhatsApp and Email options with prefilled lead details.
 
-## Deploy live (GitHub Pages)
+## 🔗 Live Website
 
-This repo now includes an auto-deploy workflow:
+**Shareable Link:** [https://krishandubey5428-spec.github.io/Settlemitra/](https://krishandubey5428-spec.github.io/Settlemitra/)
 
-- `.github/workflows/deploy-pages.yml`
+## Deploy (GitHub Pages)
 
-### Steps to publish
+This repo includes an auto-deploy workflow (`.github/workflows/deploy-pages.yml`) that publishes to GitHub Pages on every push to `main`.
 
-1. Push your latest code to the `main` branch.
-2. In GitHub, open **Settings → Pages**.
-3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
-4. Wait for the workflow **Deploy Settlemitra Site** to finish.
+### One-time setup
 
-Your website URL will be:
+1. In your GitHub repo, go to **Settings → Pages**.
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
 
-`https://krishandubey5428-spec.github.io/Settlemitra/`
+### Deploying
 
-If your GitHub owner or repository name changes, this URL also changes accordingly.
+Every push to `main` triggers the workflow automatically. You can also trigger it manually from **Actions → Deploy Settlemitra Site → Run workflow**.
+
+If your GitHub owner or repository name changes, the URL also changes accordingly.

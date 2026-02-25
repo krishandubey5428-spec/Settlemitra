@@ -1,0 +1,606 @@
+/* ============================================================
+   animations.css – Settlemitra Debt Settlement Website
+   Comprehensive animation library
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1. Custom Properties (Timing & Easing)
+   ------------------------------------------------------------ */
+:root {
+  --anim-duration-fast: 0.3s;
+  --anim-duration-base: 0.6s;
+  --anim-duration-slow: 1s;
+  --anim-duration-slower: 1.5s;
+  --anim-duration-gradient: 8s;
+  --anim-duration-float: 3s;
+  --anim-duration-pulse: 2s;
+  --anim-duration-typewriter: 0.7s;
+  --anim-duration-skeleton: 1.8s;
+  --anim-duration-counter: 1.2s;
+  --anim-duration-carousel: 0.5s;
+
+  --anim-ease-default: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --anim-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --anim-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --anim-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --anim-ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.1);
+
+  --anim-delay-1: 0.1s;
+  --anim-delay-2: 0.2s;
+  --anim-delay-3: 0.3s;
+  --anim-delay-4: 0.4s;
+  --anim-delay-5: 0.5s;
+
+  --anim-translate-distance: 40px;
+  --anim-scale-from: 0.85;
+}
+
+/* ------------------------------------------------------------
+   2. Scroll-Triggered Base (Hidden → Visible)
+   Elements start hidden; add `.animate-in` via JS/Intersection Observer
+   ------------------------------------------------------------ */
+.anim-fade-up,
+.anim-fade-down,
+.anim-fade-left,
+.anim-fade-right,
+.anim-scale-in,
+.anim-zoom-in,
+.anim-slide-up,
+.anim-slide-down,
+.anim-slide-left,
+.anim-slide-right {
+  opacity: 0;
+  will-change: transform, opacity;
+  transition:
+    opacity var(--anim-duration-base) var(--anim-ease-out),
+    transform var(--anim-duration-base) var(--anim-ease-out);
+}
+
+/* --- Fade directions (starting positions) --- */
+.anim-fade-up    { transform: translateY(var(--anim-translate-distance)); }
+.anim-fade-down  { transform: translateY(calc(var(--anim-translate-distance) * -1)); }
+.anim-fade-left  { transform: translateX(var(--anim-translate-distance)); }
+.anim-fade-right { transform: translateX(calc(var(--anim-translate-distance) * -1)); }
+
+/* --- Slide directions (larger travel) --- */
+.anim-slide-up    { transform: translateY(80px); }
+.anim-slide-down  { transform: translateY(-80px); }
+.anim-slide-left  { transform: translateX(80px); }
+.anim-slide-right { transform: translateX(-80px); }
+
+/* --- Scale / Zoom --- */
+.anim-scale-in { transform: scale(var(--anim-scale-from)); }
+.anim-zoom-in  { transform: scale(0.6); }
+
+/* --- Animated-in state (applied via JS) --- */
+.anim-fade-up.animate-in,
+.anim-fade-down.animate-in,
+.anim-fade-left.animate-in,
+.anim-fade-right.animate-in,
+.anim-scale-in.animate-in,
+.anim-zoom-in.animate-in,
+.anim-slide-up.animate-in,
+.anim-slide-down.animate-in,
+.anim-slide-left.animate-in,
+.anim-slide-right.animate-in {
+  opacity: 1;
+  transform: translate(0) scale(1);
+}
+
+/* --- Staggered delay utilities --- */
+.anim-delay-1 { transition-delay: var(--anim-delay-1); }
+.anim-delay-2 { transition-delay: var(--anim-delay-2); }
+.anim-delay-3 { transition-delay: var(--anim-delay-3); }
+.anim-delay-4 { transition-delay: var(--anim-delay-4); }
+.anim-delay-5 { transition-delay: var(--anim-delay-5); }
+
+/* ------------------------------------------------------------
+   3. Keyframe Animations – Fade
+   ------------------------------------------------------------ */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(var(--anim-translate-distance)); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(calc(var(--anim-translate-distance) * -1)); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeLeft {
+  from { opacity: 0; transform: translateX(var(--anim-translate-distance)); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeRight {
+  from { opacity: 0; transform: translateX(calc(var(--anim-translate-distance) * -1)); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.kf-fade-in    { animation: fadeIn    var(--anim-duration-base) var(--anim-ease-out) both; }
+.kf-fade-up    { animation: fadeUp    var(--anim-duration-base) var(--anim-ease-out) both; }
+.kf-fade-down  { animation: fadeDown  var(--anim-duration-base) var(--anim-ease-out) both; }
+.kf-fade-left  { animation: fadeLeft  var(--anim-duration-base) var(--anim-ease-out) both; }
+.kf-fade-right { animation: fadeRight var(--anim-duration-base) var(--anim-ease-out) both; }
+
+/* ------------------------------------------------------------
+   4. Keyframe Animations – Slide
+   ------------------------------------------------------------ */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(100%); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-100%); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideLeft {
+  from { opacity: 0; transform: translateX(100%); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(-100%); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.kf-slide-up    { animation: slideUp    var(--anim-duration-base) var(--anim-ease-out) both; }
+.kf-slide-down  { animation: slideDown  var(--anim-duration-base) var(--anim-ease-out) both; }
+.kf-slide-left  { animation: slideLeft  var(--anim-duration-base) var(--anim-ease-out) both; }
+.kf-slide-right { animation: slideRight var(--anim-duration-base) var(--anim-ease-out) both; }
+
+/* ------------------------------------------------------------
+   5. Keyframe Animations – Scale / Zoom
+   ------------------------------------------------------------ */
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(var(--anim-scale-from)); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.6); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes zoomInBounce {
+  0%   { opacity: 0; transform: scale(0.5); }
+  70%  { opacity: 1; transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.kf-scale-in      { animation: scaleIn      var(--anim-duration-base) var(--anim-ease-out) both; }
+.kf-zoom-in       { animation: zoomIn       var(--anim-duration-base) var(--anim-ease-out) both; }
+.kf-zoom-in-bounce { animation: zoomInBounce var(--anim-duration-slow) var(--anim-ease-spring) both; }
+
+/* ------------------------------------------------------------
+   6. Typewriter Cursor Blink
+   ------------------------------------------------------------ */
+@keyframes cursorBlink {
+  0%, 100% { border-right-color: transparent; }
+  50%      { border-right-color: currentColor; }
+}
+
+.typewriter-cursor {
+  border-right: 2px solid currentColor;
+  animation: cursorBlink var(--anim-duration-typewriter) steps(1) infinite;
+}
+
+/* Optional: pair with JS-driven typing to auto-hide cursor when done */
+.typewriter-cursor.done {
+  border-right-color: transparent;
+  animation: none;
+}
+
+/* ------------------------------------------------------------
+   7. Pulse Animation – CTA Buttons
+   ------------------------------------------------------------ */
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.5); }
+  70%  { box-shadow: 0 0 0 14px rgba(37, 99, 235, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+}
+
+@keyframes pulseSubtle {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.04); }
+}
+
+.btn-pulse {
+  animation: pulse var(--anim-duration-pulse) infinite;
+}
+
+.btn-pulse-subtle {
+  animation: pulseSubtle var(--anim-duration-pulse) var(--anim-ease-in-out) infinite;
+}
+
+/* ------------------------------------------------------------
+   8. Counter / Number Roll Animation
+   ------------------------------------------------------------ */
+@keyframes counterRoll {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.counter-roll {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.counter-roll .counter-digit {
+  display: inline-block;
+  animation: counterRoll var(--anim-duration-counter) var(--anim-ease-out) both;
+}
+
+/* Staggered per-digit delays */
+.counter-roll .counter-digit:nth-child(1) { animation-delay: 0s; }
+.counter-roll .counter-digit:nth-child(2) { animation-delay: 0.08s; }
+.counter-roll .counter-digit:nth-child(3) { animation-delay: 0.16s; }
+.counter-roll .counter-digit:nth-child(4) { animation-delay: 0.24s; }
+.counter-roll .counter-digit:nth-child(5) { animation-delay: 0.32s; }
+.counter-roll .counter-digit:nth-child(6) { animation-delay: 0.40s; }
+.counter-roll .counter-digit:nth-child(7) { animation-delay: 0.48s; }
+
+/* ------------------------------------------------------------
+   9. Hover Transitions – Cards & Buttons
+   ------------------------------------------------------------ */
+.card-hover {
+  transition:
+    transform var(--anim-duration-fast) var(--anim-ease-out),
+    box-shadow var(--anim-duration-fast) var(--anim-ease-out);
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.card-hover:active {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Button lift */
+.btn-hover {
+  transition:
+    transform var(--anim-duration-fast) var(--anim-ease-out),
+    box-shadow var(--anim-duration-fast) var(--anim-ease-out),
+    background-color var(--anim-duration-fast) ease;
+}
+
+.btn-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-hover:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* Icon rotate on hover (e.g., arrow icon in a link) */
+.icon-hover-rotate {
+  transition: transform var(--anim-duration-fast) var(--anim-ease-out);
+}
+
+.icon-hover-rotate:hover {
+  transform: rotate(15deg);
+}
+
+/* ------------------------------------------------------------
+   10. Loading / Skeleton Animations
+   ------------------------------------------------------------ */
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #e2e8f0 25%,
+    #f1f5f9 50%,
+    #e2e8f0 75%
+  );
+  background-size: 800px 100%;
+  animation: shimmer var(--anim-duration-skeleton) linear infinite;
+  border-radius: 4px;
+}
+
+.skeleton-text {
+  height: 1em;
+  margin-bottom: 0.5em;
+  border-radius: 4px;
+}
+
+.skeleton-heading {
+  height: 1.6em;
+  width: 60%;
+  margin-bottom: 0.75em;
+  border-radius: 4px;
+}
+
+.skeleton-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.skeleton-card {
+  height: 200px;
+  border-radius: 8px;
+}
+
+/* Dot loader */
+@keyframes dotPulse {
+  0%, 80%, 100% { transform: scale(0); opacity: 0.5; }
+  40%           { transform: scale(1); opacity: 1; }
+}
+
+.dot-loader {
+  display: inline-flex;
+  gap: 6px;
+}
+
+.dot-loader span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: dotPulse 1.4s var(--anim-ease-in-out) infinite;
+}
+
+.dot-loader span:nth-child(2) { animation-delay: 0.16s; }
+.dot-loader span:nth-child(3) { animation-delay: 0.32s; }
+
+/* ------------------------------------------------------------
+   11. Hero Section Animations
+   ------------------------------------------------------------ */
+
+/* Gradient shift background */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero-gradient {
+  background-size: 200% 200%;
+  animation: gradientShift var(--anim-duration-gradient) ease infinite;
+}
+
+/* Floating decorative element */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-18px); }
+}
+
+@keyframes floatReverse {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(12px); }
+}
+
+.hero-float {
+  animation: float var(--anim-duration-float) var(--anim-ease-in-out) infinite;
+}
+
+.hero-float-reverse {
+  animation: floatReverse var(--anim-duration-float) var(--anim-ease-in-out) infinite;
+}
+
+.hero-float-slow {
+  animation: float calc(var(--anim-duration-float) * 1.5) var(--anim-ease-in-out) infinite;
+}
+
+/* Hero content stagger entrance */
+.hero-title {
+  animation: fadeUp var(--anim-duration-slow) var(--anim-ease-out) both;
+}
+
+.hero-subtitle {
+  animation: fadeUp var(--anim-duration-slow) var(--anim-ease-out) 0.15s both;
+}
+
+.hero-cta {
+  animation: fadeUp var(--anim-duration-slow) var(--anim-ease-out) 0.3s both;
+}
+
+.hero-image {
+  animation: fadeLeft var(--anim-duration-slow) var(--anim-ease-out) 0.4s both;
+}
+
+/* ------------------------------------------------------------
+   12. Navigation Dropdown Animation
+   ------------------------------------------------------------ */
+.nav-dropdown {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px) scale(0.97);
+  transform-origin: top center;
+  transition:
+    opacity var(--anim-duration-fast) var(--anim-ease-out),
+    transform var(--anim-duration-fast) var(--anim-ease-out),
+    visibility var(--anim-duration-fast);
+  pointer-events: none;
+}
+
+.nav-dropdown.is-open,
+.nav-item:hover > .nav-dropdown,
+.nav-item:focus-within > .nav-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* Dropdown item stagger */
+.nav-dropdown li {
+  opacity: 0;
+  transform: translateY(-6px);
+  transition:
+    opacity var(--anim-duration-fast) var(--anim-ease-out),
+    transform var(--anim-duration-fast) var(--anim-ease-out);
+}
+
+.nav-dropdown.is-open li,
+.nav-item:hover > .nav-dropdown li,
+.nav-item:focus-within > .nav-dropdown li {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nav-dropdown li:nth-child(1) { transition-delay: 0.03s; }
+.nav-dropdown li:nth-child(2) { transition-delay: 0.06s; }
+.nav-dropdown li:nth-child(3) { transition-delay: 0.09s; }
+.nav-dropdown li:nth-child(4) { transition-delay: 0.12s; }
+.nav-dropdown li:nth-child(5) { transition-delay: 0.15s; }
+
+/* Mobile nav slide */
+@keyframes navSlideIn {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
+
+@keyframes navSlideOut {
+  from { transform: translateX(0); }
+  to   { transform: translateX(100%); }
+}
+
+.mobile-nav-enter {
+  animation: navSlideIn var(--anim-duration-fast) var(--anim-ease-out) both;
+}
+
+.mobile-nav-exit {
+  animation: navSlideOut var(--anim-duration-fast) var(--anim-ease-default) both;
+}
+
+/* ------------------------------------------------------------
+   13. Testimonial Carousel Transitions
+   ------------------------------------------------------------ */
+@keyframes carouselSlideLeft {
+  from { transform: translateX(100%);  opacity: 0; }
+  to   { transform: translateX(0);     opacity: 1; }
+}
+
+@keyframes carouselSlideRight {
+  from { transform: translateX(-100%); opacity: 0; }
+  to   { transform: translateX(0);     opacity: 1; }
+}
+
+@keyframes carouselExitLeft {
+  from { transform: translateX(0);     opacity: 1; }
+  to   { transform: translateX(-100%); opacity: 0; }
+}
+
+@keyframes carouselExitRight {
+  from { transform: translateX(0);     opacity: 1; }
+  to   { transform: translateX(100%);  opacity: 0; }
+}
+
+.carousel-slide {
+  will-change: transform, opacity;
+}
+
+.carousel-enter-left {
+  animation: carouselSlideLeft var(--anim-duration-carousel) var(--anim-ease-out) both;
+}
+
+.carousel-enter-right {
+  animation: carouselSlideRight var(--anim-duration-carousel) var(--anim-ease-out) both;
+}
+
+.carousel-exit-left {
+  animation: carouselExitLeft var(--anim-duration-carousel) var(--anim-ease-default) both;
+}
+
+.carousel-exit-right {
+  animation: carouselExitRight var(--anim-duration-carousel) var(--anim-ease-default) both;
+}
+
+/* Crossfade alternative */
+@keyframes carouselFadeIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes carouselFadeOut {
+  from { opacity: 1; transform: scale(1); }
+  to   { opacity: 0; transform: scale(0.96); }
+}
+
+.carousel-fade-enter {
+  animation: carouselFadeIn var(--anim-duration-carousel) var(--anim-ease-out) both;
+}
+
+.carousel-fade-exit {
+  animation: carouselFadeOut var(--anim-duration-carousel) var(--anim-ease-default) both;
+}
+
+/* Carousel dot indicator */
+.carousel-dot {
+  transition:
+    background-color var(--anim-duration-fast) ease,
+    transform var(--anim-duration-fast) var(--anim-ease-out);
+}
+
+.carousel-dot.active {
+  transform: scale(1.3);
+}
+
+/* ------------------------------------------------------------
+   14. Utility Animation Modifiers
+   ------------------------------------------------------------ */
+.anim-duration-fast   { animation-duration: var(--anim-duration-fast)   !important; }
+.anim-duration-base   { animation-duration: var(--anim-duration-base)   !important; }
+.anim-duration-slow   { animation-duration: var(--anim-duration-slow)   !important; }
+.anim-duration-slower { animation-duration: var(--anim-duration-slower) !important; }
+
+.anim-loop     { animation-iteration-count: infinite !important; }
+.anim-no-delay { animation-delay: 0s !important; transition-delay: 0s !important; }
+
+/* ------------------------------------------------------------
+   15. Reduced Motion – Accessibility
+   ------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .anim-fade-up,
+  .anim-fade-down,
+  .anim-fade-left,
+  .anim-fade-right,
+  .anim-scale-in,
+  .anim-zoom-in,
+  .anim-slide-up,
+  .anim-slide-down,
+  .anim-slide-left,
+  .anim-slide-right {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero-float,
+  .hero-float-reverse,
+  .hero-float-slow,
+  .btn-pulse,
+  .btn-pulse-subtle {
+    animation: none;
+  }
+
+  .skeleton {
+    animation: none;
+    background: #e2e8f0;
+  }
+}

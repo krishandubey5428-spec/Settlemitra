@@ -12,6 +12,7 @@
     rel="stylesheet"
   />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="animations.css" />
 </head>
 <body>
   <header class="site-header">
@@ -21,15 +22,27 @@
       <nav class="site-nav">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="services.html">Services</a>
+        <div class="nav-dropdown">
+          <a href="services.html" class="nav-dropdown-trigger">Services ▾</a>
+          <div class="nav-dropdown-menu">
+            <a href="personal-loan-settlement.html">Personal Loan Settlement</a>
+            <a href="credit-card-settlement.html">Credit Card Settlement</a>
+            <a href="home-loan-settlement.html">Home Loan Settlement</a>
+            <a href="business-loan-settlement.html">Business Loan Settlement</a>
+            <a href="anti-harassment.html">Anti-Harassment Support</a>
+            <a href="credit-score-rebuilding.html">Credit Score Rebuilding</a>
+          </div>
+        </div>
+        <a href="blog.html">Blog</a>
         <a href="faq.html" class="active">FAQ</a>
-        <a href="contact.html" class="btn btn-sm">Book Free Consultation</a>
+        <a href="careers.html">Careers</a>
+        <a href="contact.html" class="btn btn-sm">Free Consultation</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="section page-head">
+    <section class="section page-head" data-animate>
       <div class="container narrow">
         <span class="eyebrow">FAQs</span>
         <h1>Questions Clients Ask Most Often</h1>
@@ -37,7 +50,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" data-animate>
       <div class="container faq-list">
         <details>
           <summary>What is debt settlement?</summary>
@@ -68,16 +81,36 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-wrap">
-      <p>© <span data-year></span> Settlemitra. All rights reserved.</p>
+    <div class="container footer-grid">
       <div>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
+        <h4 class="brand">Settlemitra</h4>
+        <p>India's trusted debt settlement support partner. We help you negotiate, settle, and rebuild.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <a href="personal-loan-settlement.html">Personal Loan Settlement</a>
+        <a href="credit-card-settlement.html">Credit Card Settlement</a>
+        <a href="home-loan-settlement.html">Home Loan Settlement</a>
+        <a href="business-loan-settlement.html">Business Loan Settlement</a>
+        <a href="anti-harassment.html">Anti-Harassment Support</a>
+        <a href="credit-score-rebuilding.html">Credit Score Rebuilding</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="about.html">About Us</a>
+        <a href="careers.html">Careers</a>
+        <a href="blog.html">Blog</a>
         <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
       </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; <span data-year></span> Settlemitra. All rights reserved.</p>
     </div>
   </footer>
 

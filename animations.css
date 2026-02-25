@@ -1,0 +1,247 @@
+/* ============================================
+   animations.css — Comprehensive CSS Animations
+   ============================================ */
+
+/* ---------- Keyframes ---------- */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes cursorBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 12px rgba(99, 102, 241, 0);
+  }
+}
+
+@keyframes counterRoll {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* ---------- Scroll-triggered base ---------- */
+
+.animate {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.animate.visible {
+  animation-duration: 0.6s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
+
+/* ---------- Scroll-triggered variants ---------- */
+
+.fade-in-up.visible    { animation-name: fadeInUp; }
+.fade-in-down.visible  { animation-name: fadeInDown; }
+.fade-in-left.visible  { animation-name: fadeInLeft; }
+.fade-in-right.visible { animation-name: fadeInRight; }
+.scale-in.visible      { animation-name: scaleIn; }
+.scale-up.visible      { animation-name: scaleUp; }
+.slide-in-left.visible { animation-name: slideInLeft; }
+.slide-in-right.visible { animation-name: slideInRight; }
+
+/* ---------- Stagger delays ---------- */
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+
+/* ---------- Typewriter cursor ---------- */
+
+.typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  background-color: currentColor;
+  animation: cursorBlink 0.8s steps(1) infinite;
+}
+
+/* ---------- Float / hover ---------- */
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ---------- Pulse CTA ---------- */
+
+.pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ---------- Counter roll ---------- */
+
+.counter-roll {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.counter-roll.visible .counter-roll__digit {
+  animation: counterRoll 0.6s ease-out both;
+}
+
+.counter-roll__digit {
+  display: inline-block;
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+/* ---------- Shimmer / gradient ---------- */
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2.5s linear infinite;
+}
+
+/* ---------- Accessibility: reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .animate {
+    opacity: 1;
+  }
+
+  .float,
+  .pulse,
+  .shimmer {
+    animation: none;
+  }
+}

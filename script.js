@@ -103,6 +103,25 @@ const submitToWebhook = async (lead) => {
 
 createFloatingWhatsAppButton();
 
+// Fade-in on scroll using IntersectionObserver
+const fadeElements = document.querySelectorAll('.fade-in');
+if (fadeElements.length && 'IntersectionObserver' in window) {
+  const fadeObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+  fadeElements.forEach((el) => fadeObserver.observe(el));
+} else {
+  fadeElements.forEach((el) => el.classList.add('visible'));
+}
+
 const forms = document.querySelectorAll('[data-form]');
 forms.forEach((form) => {
   form.addEventListener('submit', async (event) => {

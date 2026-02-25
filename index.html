@@ -3,18 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-    name="description"
-    content="Settlemitra helps individuals and families negotiate and settle debt with confidence through transparent, ethical debt settlement support."
-  />
-  <title>Settlemitra | Debt Settlement Support</title>
+  <meta name="description" content="Settlemitra — India's trusted debt settlement partner. We help individuals and families negotiate and settle debt with confidence through transparent, ethical support. 10,000+ cases handled." />
+  <meta name="keywords" content="debt settlement, loan settlement, credit card settlement, personal loan settlement, home loan settlement, business loan settlement, debt relief India" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Settlemitra | Debt Settlement Support" />
+  <meta property="og:description" content="Resolve debt faster. Rebuild life with confidence. 10,000+ cases handled with 95% client satisfaction." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://settlemitra.com/" />
+  <link rel="canonical" href="https://settlemitra.com/" />
+  <title>Settlemitra | Debt Settlement Support — Resolve Debt Faster</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="animations.css" />
 </head>
 <body>
   <header class="site-header">
@@ -24,19 +26,33 @@
       <nav class="site-nav">
         <a href="index.html" class="active">Home</a>
         <a href="about.html">About</a>
-        <a href="services.html">Services</a>
+        <div class="nav-dropdown">
+          <button class="dropdown-toggle">Services ▾</button>
+          <div class="dropdown-menu">
+            <a href="services.html">All Services</a>
+            <a href="personal-loan-settlement.html">Personal Loan Settlement</a>
+            <a href="credit-card-settlement.html">Credit Card Settlement</a>
+            <a href="home-loan-settlement.html">Home Loan Settlement</a>
+            <a href="business-loan-settlement.html">Business Loan Settlement</a>
+            <a href="anti-harassment.html">Anti-Harassment Support</a>
+            <a href="credit-score-rebuilding.html">Credit Score Rebuilding</a>
+          </div>
+        </div>
+        <a href="blog.html">Blog</a>
         <a href="faq.html">FAQ</a>
+        <a href="careers.html">Careers</a>
         <a href="contact.html" class="btn btn-sm">Book Free Consultation</a>
       </nav>
     </div>
   </header>
 
   <main>
+    <!-- Hero Section -->
     <section class="hero section">
       <div class="container hero-grid">
-        <div>
+        <div class="animate fade-in-up">
           <span class="eyebrow">Trusted Debt Settlement Partner</span>
-          <h1>Resolve Debt Faster. Rebuild Life with Confidence.</h1>
+          <h1 data-typewriter="Resolve Debt Faster. Rebuild Life with Confidence.">Resolve Debt Faster. Rebuild Life with Confidence.</h1>
           <p>
             Settlemitra helps you reduce debt burden through structured settlement strategies,
             creditor negotiation guidance, and personalized action planning.
@@ -45,13 +61,13 @@
             <a href="contact.html" class="btn">Start Free Assessment</a>
             <a href="services.html" class="btn btn-ghost">Explore Services</a>
           </div>
-          <ul class="hero-points">
-            <li>Personalized debt analysis</li>
-            <li>Transparent process and timelines</li>
-            <li>Dedicated support team</li>
+          <ul class="trust-indicators">
+            <li><strong>10,000+</strong> Cases Handled</li>
+            <li><strong>4.8★</strong> Client Rating</li>
+            <li><strong>₹500 Cr+</strong> Debt Settled</li>
           </ul>
         </div>
-        <aside class="hero-card">
+        <aside class="hero-card animate fade-in-up">
           <h2>Quick Eligibility Check</h2>
           <p>Answer a few details and our team will contact you.</p>
           <form class="lead-form" data-form>
@@ -74,73 +90,282 @@
       </div>
     </section>
 
-    <section class="section">
+    <!-- Trust Bar -->
+    <section class="section trust-bar">
+      <div class="container animate fade-in-up">
+        <p class="trust-bar-text">Featured in: <strong>Economic Times</strong> | <strong>Business Standard</strong> | <strong>Mint</strong> | <strong>YourStory</strong></p>
+      </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="section" id="services">
       <div class="container">
-        <h2 class="section-title">Why Clients Choose Settlemitra</h2>
+        <h2 class="section-title animate fade-in-up">Our Services</h2>
         <div class="cards three">
-          <article class="card">
-            <h3>Expert Negotiation Guidance</h3>
-            <p>We help structure settlement offers and coordinate with creditors for practical closures.</p>
+          <article class="card animate fade-in-up">
+            <h3>Personal Loan Settlement</h3>
+            <p>Negotiate and settle personal loans with reduced payable amounts and structured closure plans.</p>
+            <a href="personal-loan-settlement.html" class="card-link">Learn More →</a>
           </article>
-          <article class="card">
-            <h3>Practical Financial Planning</h3>
-            <p>Our team creates realistic payment strategies based on your income and liabilities.</p>
+          <article class="card animate fade-in-up">
+            <h3>Credit Card Settlement</h3>
+            <p>Resolve mounting credit card debt through strategic negotiation with banks and issuers.</p>
+            <a href="credit-card-settlement.html" class="card-link">Learn More →</a>
           </article>
-          <article class="card">
-            <h3>Confidential & Compassionate</h3>
-            <p>Your case is handled with empathy, privacy, and clear communication at every stage.</p>
+          <article class="card animate fade-in-up">
+            <h3>Home Loan Settlement</h3>
+            <p>Expert guidance to restructure or settle home loan obligations and protect your assets.</p>
+            <a href="home-loan-settlement.html" class="card-link">Learn More →</a>
+          </article>
+          <article class="card animate fade-in-up">
+            <h3>Business Loan Settlement</h3>
+            <p>Help entrepreneurs and businesses negotiate practical settlements on outstanding business loans.</p>
+            <a href="business-loan-settlement.html" class="card-link">Learn More →</a>
+          </article>
+          <article class="card animate fade-in-up">
+            <h3>Anti-Harassment Support</h3>
+            <p>Protection against aggressive collection practices with legal awareness and documentation support.</p>
+            <a href="anti-harassment.html" class="card-link">Learn More →</a>
+          </article>
+          <article class="card animate fade-in-up">
+            <h3>Credit Score Rebuilding</h3>
+            <p>Post-settlement strategies to improve your CIBIL score and restore financial credibility.</p>
+            <a href="credit-score-rebuilding.html" class="card-link">Learn More →</a>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section alt">
+    <!-- How It Works -->
+    <section class="section alt" id="how-it-works">
       <div class="container">
-        <h2 class="section-title">How It Works</h2>
+        <h2 class="section-title animate fade-in-up">How It Works</h2>
         <div class="steps">
-          <article class="step"><span>1</span><h3>Consultation</h3><p>Discuss your debt profile and goals with our advisor.</p></article>
-          <article class="step"><span>2</span><h3>Assessment</h3><p>We evaluate liabilities, creditors, and feasible settlement range.</p></article>
-          <article class="step"><span>3</span><h3>Negotiation</h3><p>Structured negotiation support to work toward lower payable outcomes.</p></article>
-          <article class="step"><span>4</span><h3>Closure Plan</h3><p>Track settlements and move into post-settlement recovery guidance.</p></article>
+          <article class="step animate fade-in-up">
+            <span>1</span>
+            <h3>Free Consultation</h3>
+            <p>Share your debt profile and goals with our expert advisor in a confidential session.</p>
+          </article>
+          <article class="step animate fade-in-up">
+            <span>2</span>
+            <h3>Debt Assessment</h3>
+            <p>We evaluate your liabilities, creditors, income, and determine the feasible settlement range.</p>
+          </article>
+          <article class="step animate fade-in-up">
+            <span>3</span>
+            <h3>Negotiation &amp; Settlement</h3>
+            <p>Structured negotiation support to work toward significantly lower payable outcomes.</p>
+          </article>
+          <article class="step animate fade-in-up">
+            <span>4</span>
+            <h3>Closure &amp; Recovery</h3>
+            <p>Track settlements, obtain NOCs, and move into post-settlement credit recovery guidance.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <!-- Comparison Table -->
+    <section class="section" id="compare">
       <div class="container">
-        <h2 class="section-title">Client Experience</h2>
+        <h2 class="section-title animate fade-in-up">Why Choose Settlemitra?</h2>
+        <div class="table-responsive animate fade-in-up">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Settlemitra</th>
+                <th>DIY Settlement</th>
+                <th>Lawyers</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Expert Negotiation</td>
+                <td>✅ Dedicated team</td>
+                <td>❌ No guidance</td>
+                <td>⚠️ Limited focus</td>
+              </tr>
+              <tr>
+                <td>Cost</td>
+                <td>✅ Affordable fees</td>
+                <td>✅ Free</td>
+                <td>❌ High retainers</td>
+              </tr>
+              <tr>
+                <td>Speed</td>
+                <td>✅ 3–9 months</td>
+                <td>⚠️ Unpredictable</td>
+                <td>❌ 12+ months</td>
+              </tr>
+              <tr>
+                <td>Creditor Relations</td>
+                <td>✅ Established contacts</td>
+                <td>❌ No leverage</td>
+                <td>⚠️ Adversarial</td>
+              </tr>
+              <tr>
+                <td>Post-Settlement Support</td>
+                <td>✅ Credit rebuilding</td>
+                <td>❌ None</td>
+                <td>❌ None</td>
+              </tr>
+              <tr>
+                <td>Harassment Protection</td>
+                <td>✅ Full support</td>
+                <td>❌ Self-managed</td>
+                <td>✅ Legal notices</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="section alt stats-section" id="stats">
+      <div class="container">
+        <h2 class="section-title animate fade-in-up">Our Impact in Numbers</h2>
+        <div class="cards four animate fade-in-up">
+          <article class="card stat-card">
+            <span class="stat-number" data-count="10000">0</span><span class="stat-suffix">+</span>
+            <p>Clients Helped</p>
+          </article>
+          <article class="card stat-card">
+            <span class="stat-number" data-count="500">0</span><span class="stat-suffix">+ Cr</span>
+            <p>Debt Settled (₹)</p>
+          </article>
+          <article class="card stat-card">
+            <span class="stat-number" data-count="95">0</span><span class="stat-suffix">%</span>
+            <p>Client Satisfaction</p>
+          </article>
+          <article class="card stat-card">
+            <span class="stat-number" data-count="50">0</span><span class="stat-suffix">+</span>
+            <p>Bank &amp; NBFC Partners</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section" id="testimonials">
+      <div class="container">
+        <h2 class="section-title animate fade-in-up">What Our Clients Say</h2>
         <div class="cards two">
-          <blockquote class="card quote">
-            “Settlemitra explained every step and helped me organize my settlements in a calm and practical way.”
-            <cite>— Working Professional, Delhi</cite>
+          <blockquote class="card quote animate fade-in-up">
+            "Settlemitra explained every step and helped me organize my settlements in a calm and practical way. I saved over 60% on my credit card debt."
+            <cite>— Rajesh K., Working Professional, Delhi</cite>
           </blockquote>
-          <blockquote class="card quote">
-            “The process felt transparent and structured. I finally had a roadmap to become debt-light.”
-            <cite>— Business Owner, Pune</cite>
+          <blockquote class="card quote animate fade-in-up">
+            "The process felt transparent and structured. I finally had a roadmap to become debt-free. Their team was available whenever I had questions."
+            <cite>— Priya M., Business Owner, Pune</cite>
+          </blockquote>
+          <blockquote class="card quote animate fade-in-up">
+            "I was drowning in personal loan EMIs. Settlemitra negotiated with three banks simultaneously and got me settlements I never thought possible."
+            <cite>— Amit S., IT Professional, Bangalore</cite>
+          </blockquote>
+          <blockquote class="card quote animate fade-in-up">
+            "After months of harassment calls, Settlemitra not only settled my debts but also helped stop the aggressive collection practices. Highly recommended."
+            <cite>— Sunita D., Teacher, Mumbai</cite>
           </blockquote>
         </div>
       </div>
     </section>
 
+    <!-- Blog Preview -->
+    <section class="section alt" id="blog">
+      <div class="container">
+        <h2 class="section-title animate fade-in-up">From Our Blog</h2>
+        <div class="cards three">
+          <article class="card blog-card animate fade-in-up">
+            <h3>How Debt Settlement Works in India: A Complete Guide</h3>
+            <p>Understanding the debt settlement process, legal framework, and what to expect at every stage of your journey to financial freedom.</p>
+            <a href="blog-1.html" class="card-link">Read More →</a>
+          </article>
+          <article class="card blog-card animate fade-in-up">
+            <h3>5 Signs You Need Professional Debt Settlement Help</h3>
+            <p>Recognizing when DIY approaches aren't enough and how professional support can accelerate your path to becoming debt-free.</p>
+            <a href="blog-2.html" class="card-link">Read More →</a>
+          </article>
+          <article class="card blog-card animate fade-in-up">
+            <h3>Rebuilding Your Credit Score After Settlement</h3>
+            <p>Practical strategies to improve your CIBIL score post-settlement and regain financial credibility with lenders.</p>
+            <a href="blog-3.html" class="card-link">Read More →</a>
+          </article>
+        </div>
+        <div class="text-center animate fade-in-up">
+          <a href="blog.html" class="btn btn-ghost">View All Articles →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
     <section class="section cta">
-      <div class="container cta-wrap">
+      <div class="container cta-wrap animate fade-in-up">
         <h2>Take the First Step Toward Debt Freedom</h2>
-        <p>Book a free consultation and get a custom debt-settlement action plan.</p>
-        <a href="contact.html" class="btn">Talk to an Expert</a>
+        <p>Book a free consultation and get a custom debt-settlement action plan tailored to your situation.</p>
+        <div class="hero-actions">
+          <a href="contact.html" class="btn">Talk to an Expert</a>
+          <a href="tel:+919000000000" class="btn btn-ghost">Call Now: +91-90000-00000</a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-wrap">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <h4>Settlemitra</h4>
+        <p>India's trusted debt settlement partner helping individuals and families regain financial control through ethical, transparent support.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="personal-loan-settlement.html">Personal Loan Settlement</a></li>
+          <li><a href="credit-card-settlement.html">Credit Card Settlement</a></li>
+          <li><a href="home-loan-settlement.html">Home Loan Settlement</a></li>
+          <li><a href="business-loan-settlement.html">Business Loan Settlement</a></li>
+          <li><a href="anti-harassment.html">Anti-Harassment Support</a></li>
+          <li><a href="credit-score-rebuilding.html">Credit Score Rebuilding</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="services.html">All Services</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>Phone: <a href="tel:+919000000000">+91-90000-00000</a></p>
+        <p>Email: <a href="mailto:support@settlemitra.com">support@settlemitra.com</a></p>
+        <p>Hours: Mon–Sat, 9:30 AM – 7:00 PM</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook">FB</a>
+          <a href="#" aria-label="Twitter">TW</a>
+          <a href="#" aria-label="LinkedIn">LI</a>
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="YouTube">YT</a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
       <p>© <span data-year></span> Settlemitra. All rights reserved.</p>
-      <div>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
+      <div class="legal-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="sitemap.xml">Sitemap</a>
       </div>
     </div>
   </footer>

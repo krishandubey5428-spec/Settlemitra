@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://krishandubey5428-spec.github.io/Settlemitra/sitemap.xml

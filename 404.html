@@ -4,15 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Page Not Found | Settlemitra</title>
+  <meta name="description" content="The page you're looking for doesn't exist. Browse Settlemitra's debt settlement services, blog, or contact us for help." />
+  <meta name="robots" content="noindex, follow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="animations.css" />
 </head>
 <body>
+
   <header class="site-header">
     <div class="container nav-wrap">
       <a href="index.html" class="brand">Settlemitra</a>
@@ -20,33 +21,117 @@
       <nav class="site-nav">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="services.html">Services</a>
+        <div class="nav-dropdown">
+          <a href="services.html" class="nav-dropdown-trigger">Services ▾</a>
+          <div class="nav-dropdown-menu">
+            <a href="personal-loan-settlement.html">Personal Loan Settlement</a>
+            <a href="credit-card-settlement.html">Credit Card Settlement</a>
+            <a href="home-loan-settlement.html">Home Loan Settlement</a>
+            <a href="business-loan-settlement.html">Business Loan Settlement</a>
+            <a href="anti-harassment.html">Anti-Harassment Support</a>
+            <a href="credit-score-rebuilding.html">Credit Score Rebuilding</a>
+          </div>
+        </div>
+        <a href="blog.html">Blog</a>
         <a href="faq.html">FAQ</a>
-        <a href="contact.html" class="btn btn-sm">Book Free Consultation</a>
+        <a href="careers.html">Careers</a>
+        <a href="contact.html" class="btn btn-sm">Free Consultation</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="section cta">
-      <div class="container cta-wrap">
-        <h1>404 — Page Not Found</h1>
-        <p>The page you are looking for does not exist or has been moved.</p>
-        <a href="index.html" class="btn">Back to Home</a>
+    <section class="section cta" style="padding-block:var(--space-16,6rem)">
+      <div class="container" style="text-align:center;max-width:680px">
+        <div class="anim-scale-in" data-animate>
+          <span style="font-size:clamp(6rem,15vw,10rem);font-weight:800;line-height:1;display:block;opacity:.12">404</span>
+        </div>
+        <h1 class="anim-fade-up" data-animate style="margin-top:var(--space-4)">Page Not Found</h1>
+        <p class="anim-fade-up anim-delay-1" data-animate style="font-size:1.125rem;max-width:480px;margin-inline:auto;margin-bottom:var(--space-8)">Sorry, the page you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
+        <div class="anim-fade-up anim-delay-2" data-animate style="display:flex;flex-wrap:wrap;gap:var(--space-3);justify-content:center;margin-bottom:var(--space-10)">
+          <a href="index.html" class="btn">Back to Home</a>
+          <a href="contact.html" class="btn btn-ghost">Contact Us</a>
+        </div>
+
+        <div class="anim-fade-up anim-delay-3" data-animate>
+          <p style="margin-bottom:var(--space-4);font-weight:600">Popular Pages</p>
+          <div class="cards two" style="text-align:left;max-width:520px;margin-inline:auto">
+            <a href="services.html" class="card card-hover" style="padding:var(--space-5)">
+              <h3 style="font-size:1rem;margin-bottom:var(--space-1)">Our Services</h3>
+              <p style="font-size:.875rem;margin:0">Explore personal loan, credit card, home loan &amp; business loan settlement options.</p>
+            </a>
+            <a href="blog.html" class="card card-hover" style="padding:var(--space-5)">
+              <h3 style="font-size:1rem;margin-bottom:var(--space-1)">Blog &amp; Resources</h3>
+              <p style="font-size:.875rem;margin:0">Expert tips on debt management, settlement strategies, and financial recovery.</p>
+            </a>
+            <a href="faq.html" class="card card-hover" style="padding:var(--space-5)">
+              <h3 style="font-size:1rem;margin-bottom:var(--space-1)">FAQ</h3>
+              <p style="font-size:.875rem;margin:0">Answers to common questions about debt settlement and our process.</p>
+            </a>
+            <a href="contact.html" class="card card-hover" style="padding:var(--space-5)">
+              <h3 style="font-size:1rem;margin-bottom:var(--space-1)">Contact Us</h3>
+              <p style="font-size:.875rem;margin:0">Get in touch for a free consultation with our debt settlement experts.</p>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-wrap">
-      <p>© <span data-year></span> Settlemitra. All rights reserved.</p>
-      <div>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Settlemitra</div>
+          <p>India's trusted debt settlement company. We help individuals and businesses negotiate and settle debt with confidence, transparency, and compassion.</p>
+          <div style="display:flex;gap:var(--space-3);margin-top:var(--space-4)">
+            <a href="#" aria-label="Facebook" style="color:var(--text-muted)">FB</a>
+            <a href="#" aria-label="Instagram" style="color:var(--text-muted)">IG</a>
+            <a href="#" aria-label="LinkedIn" style="color:var(--text-muted)">LI</a>
+            <a href="#" aria-label="Twitter" style="color:var(--text-muted)">TW</a>
+            <a href="#" aria-label="YouTube" style="color:var(--text-muted)">YT</a>
+          </div>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li><a href="personal-loan-settlement.html">Personal Loan Settlement</a></li>
+            <li><a href="credit-card-settlement.html">Credit Card Settlement</a></li>
+            <li><a href="home-loan-settlement.html">Home Loan Settlement</a></li>
+            <li><a href="business-loan-settlement.html">Business Loan Settlement</a></li>
+            <li><a href="anti-harassment.html">Anti-Harassment Support</a></li>
+            <li><a href="credit-score-rebuilding.html">Credit Score Rebuilding</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+          </ul>
+          <h4 style="margin-top:var(--space-6)">Contact</h4>
+          <ul>
+            <li><a href="mailto:support@settlemitra.com">support@settlemitra.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-wrap">
+        <p>© <span data-year></span> Settlemitra. All rights reserved.</p>
+        <div>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="sitemap.xml">Sitemap</a>
+        </div>
       </div>
     </div>
   </footer>

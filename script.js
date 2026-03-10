@@ -16,7 +16,7 @@ yearEls.forEach((el) => {
 
 const defaultLeadConfig = {
   webhookUrl: '',
-  whatsappNumber: '919000000000',
+  whatsappNumber: '919999999999',
   businessEmail: 'support@settlemitra.com',
 };
 

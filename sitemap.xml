@@ -21,6 +21,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://krishandubey5428-spec.github.io/Settlemitra/testimonials.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://krishandubey5428-spec.github.io/Settlemitra/calculator.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://krishandubey5428-spec.github.io/Settlemitra/blog.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://krishandubey5428-spec.github.io/Settlemitra/privacy.html</loc>
     <priority>0.4</priority>
   </url>

@@ -9,6 +9,25 @@ if (menuButton && nav) {
   });
 }
 
+// Scroll-based header shadow
+const header = document.querySelector('.site-header');
+if (header) {
+  window.addEventListener('scroll', () => {
+    header.style.boxShadow = window.scrollY > 10 ? '0 4px 24px rgba(0,0,0,0.18)' : '';
+  }, { passive: true });
+}
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener('click', (e) => {
+    const target = document.querySelector(anchor.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
 const yearEls = document.querySelectorAll('[data-year]');
 yearEls.forEach((el) => {
   el.textContent = String(new Date().getFullYear());
